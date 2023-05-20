@@ -1,6 +1,6 @@
 package ec.edu.epn.tdd.calculator;
 
-import net.bytebuddy.asm.Advice;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -42,16 +42,13 @@ public class ICalculatorTest {
 
     @Test(timeout = 150)
     public void given_two_integers_when_multiplication_then_timeout() {
-        Mockito.when(c.multiplication(4, 2)).thenAnswer(new Answer<Integer>() {
-            @Override
-            public Integer answer(InvocationOnMock invocationOnMock) {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                return 8;
+        Mockito.when(c.multiplication(4, 2)).thenAnswer((Answer<Integer>) invocationOnMock -> {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            return 8;
         });
 
        assertEquals(8, c.multiplication(4, 2));

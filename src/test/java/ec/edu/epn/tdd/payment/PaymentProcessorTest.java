@@ -1,6 +1,6 @@
 package ec.edu.epn.tdd.payment;
 
-import ec.edu.epn.tdd.calculator.ICalculator;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

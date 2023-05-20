@@ -2,7 +2,7 @@ package ec.edu.epn.tdd.payment;
 
 public class PaymentResponse {
     enum PaymentStatus{
-        OK, ERROR;
+        OK, ERROR
     }
     private PaymentStatus status;
 
